@@ -1,10 +1,12 @@
 import streamlit as st
+import googletrans
 from googletrans import Translator
 import numpy as np
 from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
 from vncorenlp import VnCoreNLP
+# import tensorflow as tf
 # vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
 
 # Tạo hàm xử lý wordsegment
@@ -19,11 +21,12 @@ from vncorenlp import VnCoreNLP
 # 
 # 
 translate=Translator()
-# tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer", use_fast=True)
-# model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
+tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer")
+model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
 st.header("This demo version for FunixXseries Machine Translation")
 question = st.text_area('Insert a English sentences.')
 # button=st.button('Translate')
+question='I hate you'
 if question:
     vi=translate.translate(str(question), src='en', dest='vi').text
     TXT = vi
@@ -31,12 +34,14 @@ if question:
     # TXT=wsegm(TXT)
     # 
     
-# input_ids = tokenizer([question], return_tensors="pt")
-# predict=model(input_ids['input_ids'])
-# logits=predict.logits
+    input_ids = tokenizer([question], return_tensors="pt")
+    predict=model(input_ids['input_ids'])
+    logits=predict.logits
     # probs = tf.nn.softmax(logits[0].detach().numpy())
-    # test=np.argmax(probs, axis=1)
+    # test=np.argmax(logits[0].detach().numpy(), axis=1)
     # ans=tokenizer.decode(test)
     
     # 
-    st.write(TXT)
+    st.write(vi)
+    
+# print(ans)
