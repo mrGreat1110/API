@@ -1,7 +1,7 @@
 import streamlit as st
-from googletrans import Translator
-import numpy as np
-from clean import clean_font
+# from googletrans import Translator
+# import numpy as np
+# from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
 # from vncorenlp import VnCoreNLP
@@ -24,19 +24,19 @@ model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslat
 st.header("This demo version for FunixXseries Machine Translation")
 question = st.text_area('Insert a English sentences.')
 # button=st.button('Translate')
-if question:
-    vi=translate.translate(str(question), src='en', dest='vi').text
-    TXT = vi
-    TXT=clean_font(TXT)
+# if question:
+    # vi=translate.translate(str(question), src='en', dest='vi').text
+    # TXT = vi
+    # TXT=clean_font(TXT)
     # TXT=wsegm(TXT)
+    # 
     
-    
-    input_ids = tokenizer([TXT], return_tensors="pt")
-    predict=model(input_ids['input_ids'])
-    logits=predict.logits
+input_ids = tokenizer([question], return_tensors="pt")
+predict=model(input_ids['input_ids'])
+logits=predict.logits
     # probs = tf.nn.softmax(logits[0].detach().numpy())
     # test=np.argmax(probs, axis=1)
     # ans=tokenizer.decode(test)
     
     # 
-    st.write(TXT)
+    # st.write(TXT)
