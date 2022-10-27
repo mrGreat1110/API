@@ -1,6 +1,5 @@
 import streamlit as st
 from googletrans import Translator
-# import tensorflow as tf
 import numpy as np
 from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
@@ -35,9 +34,9 @@ if question:
     input_ids = tokenizer([TXT], return_tensors="pt")
     predict=model(input_ids['input_ids'])
     logits=predict.logits
-    probs = tf.nn.softmax(logits[0].detach().numpy())
-    test=np.argmax(probs, axis=1)
-    ans=tokenizer.decode(test)
+    # probs = tf.nn.softmax(logits[0].detach().numpy())
+    # test=np.argmax(probs, axis=1)
+    # ans=tokenizer.decode(test)
     
     # 
-    st.write(ans)
+    st.write(TXT)
