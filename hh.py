@@ -19,8 +19,8 @@ from transformers.pipelines import pipeline
 # 
 # 
 # translate=Translator()
-tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer", use_fast=True)
-model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
+# tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer", use_fast=True)
+# model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
 st.header("This demo version for FunixXseries Machine Translation")
 question = st.text_area('Insert a English sentences.')
 # button=st.button('Translate')
@@ -31,9 +31,9 @@ question = st.text_area('Insert a English sentences.')
     # TXT=wsegm(TXT)
     # 
     
-input_ids = tokenizer([question], return_tensors="pt")
-predict=model(input_ids['input_ids'])
-logits=predict.logits
+# input_ids = tokenizer([question], return_tensors="pt")
+# predict=model(input_ids['input_ids'])
+# logits=predict.logits
     # probs = tf.nn.softmax(logits[0].detach().numpy())
     # test=np.argmax(probs, axis=1)
     # ans=tokenizer.decode(test)
