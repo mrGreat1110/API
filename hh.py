@@ -1,4 +1,3 @@
-from tkinter import Button
 import streamlit as st
 from googletrans import Translator
 import tensorflow as tf
