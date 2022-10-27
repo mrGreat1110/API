@@ -5,15 +5,15 @@ from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
 from vncorenlp import VnCoreNLP
-vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
+# vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
 
 # Tạo hàm xử lý wordsegment
-def wsegm(st):
-# 
-    vn_wsegm=[]
-    a=vnp.tokenize(st)
-    b=' '.join(a[0])
-    return b
+# def wsegm(st):
+
+    # vn_wsegm=[]
+    # a=vnp.tokenize(st)
+    # b=' '.join(a[0])
+    # return b
   
 
 # 
@@ -28,7 +28,7 @@ if question:
     vi=translate.translate(str(question), src='en', dest='vi').text
     TXT = vi
     TXT=clean_font(TXT)
-    TXT=wsegm(TXT)
+    # TXT=wsegm(TXT)
     # 
     
 # input_ids = tokenizer([question], return_tensors="pt")
