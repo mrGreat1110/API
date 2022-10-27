@@ -7,7 +7,7 @@ from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
 from vncorenlp import VnCoreNLP
-vnp=VnCoreNLP("VnCoreNLP/VnCoreNLP-1.1.1.jar",annotators="wseg")
+# vnp=VnCoreNLP("VnCoreNLP/VnCoreNLP-1.1.1.jar",annotators="wseg")
 
 # Tạo hàm xử lý wordsegment
 def wsegm(st):
@@ -32,7 +32,7 @@ if question and button:
     vi=translate.translate(str(question), src='en', dest='vi').text
     TXT = vi
     TXT=clean_font(TXT)
-    TXT=wsegm(TXT)
+    # TXT=wsegm(TXT)
     
     
     input_ids = tokenizer([TXT], return_tensors="pt")
