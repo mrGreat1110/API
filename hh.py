@@ -4,16 +4,16 @@ import numpy as np
 from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
-from vncorenlp import VnCoreNLP
-vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
+# from vncorenlp import VnCoreNLP
+# vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
 
 # Tạo hàm xử lý wordsegment
-def wsegm(st):
+# def wsegm(st):
 
-    vn_wsegm=[]
-    a=vnp.tokenize(st)
-    b=' '.join(a[0])
-    return b
+    # vn_wsegm=[]
+    # a=vnp.tokenize(st)
+    # # b=' '.join(a[0])
+    # return b
   
 
 # 
