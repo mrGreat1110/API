@@ -1,12 +1,12 @@
 import streamlit as st
 from googletrans import Translator
-import tensorflow as tf
+# import tensorflow as tf
 import numpy as np
 from clean import clean_font
 from transformers import AutoTokenizer, MBartForConditionalGeneration, AutoModel
 from transformers.pipelines import pipeline
 from vncorenlp import VnCoreNLP
-vnp=VnCoreNLP("VnCoreNLP-1.1.1.jar",annotators="wseg")
+vnp=VnCoreNLP("vncore/VnCoreNLP-1.1.1.jar",annotators="wseg")
 
 # Tạo hàm xử lý wordsegment
 def wsegm(st):
