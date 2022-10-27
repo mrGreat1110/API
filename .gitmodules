@@ -1,0 +1,3 @@
+[submodule "vncore"]
+	path = vncore
+	url = https://github.com/vncorenlp/VnCoreNLP.git
