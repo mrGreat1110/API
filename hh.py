@@ -19,8 +19,8 @@ from transformers.pipelines import pipeline
 # 
 # 
 # translate=Translator()
-# tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer", use_fast=True)
-# model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
+tokenizer = AutoTokenizer.from_pretrained("mrgreat1110/FunixTranslation_tokenizer", use_fast=True)
+model = MBartForConditionalGeneration.from_pretrained("mrgreat1110/FunixTranslation_model")
 st.header("This demo version for FunixXseries Machine Translation")
 question = st.text_area('Insert a English sentences.')
 # button=st.button('Translate')
