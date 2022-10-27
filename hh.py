@@ -27,20 +27,20 @@ st.header("This demo version for FunixXseries Machine Translation")
 question = st.text_area('Insert a English sentences.')
 # 
 # question='I will go to university'
-# button=st.button('Translate')
-# if question and button:
-    # vi=translate.translate(str(question), src='en', dest='vi').text
-    # TXT = vi
-    # TXT=clean_font(TXT)
-    # TXT=wsegm(TXT)
-    # 
-    # 
-    # input_ids = tokenizer([TXT], return_tensors="pt")
-    # predict=model(input_ids['input_ids'])
-    # logits=predict.logits
-    # probs = tf.nn.softmax(logits[0].detach().numpy())
-    # test=np.argmax(probs, axis=1)
-    # ans=tokenizer.decode(test)
-    # 
+button=st.button('Translate')
+if question and button:
+    vi=translate.translate(str(question), src='en', dest='vi').text
+    TXT = vi
+    TXT=clean_font(TXT)
+    TXT=wsegm(TXT)
     
-    # st.write(ans)
+    
+    input_ids = tokenizer([TXT], return_tensors="pt")
+    predict=model(input_ids['input_ids'])
+    logits=predict.logits
+    probs = tf.nn.softmax(logits[0].detach().numpy())
+    test=np.argmax(probs, axis=1)
+    ans=tokenizer.decode(test)
+    
+    # 
+    st.write(ans)
